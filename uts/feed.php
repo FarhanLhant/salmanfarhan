@@ -49,7 +49,7 @@
             if (isset($_GET['search'])) {
                 include 'config.php';
                 $search = $_GET['search'];
-                $query = mysqli_query($conn, "SELECT * FROM photo JOIN user USING(username) WHERE caption LIKE '%$search%'");
+                $query = mysqli_query($link, "SELECT * FROM photo JOIN user USING(username) WHERE caption LIKE '%$search%'");
                 $result = mysqli_num_rows($query);
                 if ($result > 0) {
                     while ($res = mysqli_fetch_array($query)) { ?>
@@ -71,7 +71,7 @@
                                         <i class="fa fa-comment-o fa-lg"></i>
                                     </span>
                                 </div>
-                                <span class="photo__likes"> <?php echo $res['likes']; ?> likes</span>
+                                <span class="photo__likes"> <?php echo $res['igLike']; ?> likes</span>
                                 
                                 <ul class="photo__comments"> 
                                     <li class="photo__comment">
